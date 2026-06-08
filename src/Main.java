@@ -32,6 +32,7 @@ public class Main{
                 System.out.println("Errore: posizione non valida");
             } catch (Exception e) {
                 System.out.println("Errore: errore generico");
+                scanner.nextLine();
             }
             }
         }

@@ -11,13 +11,48 @@ public class ContoCorrente {
     this.saldo = saldo;
     this.nMovimenti = 0;
   }
-  public void preleva(double x){
-    if (nMovimenti < maxMovimenti) saldo = saldo - x;
-    else saldo = saldo - x - 0.50;
-    nMovimenti++;
+  public void preleva(double x) throws BancaException{
+          if (nMovimenti < maxMovimenti) {
+            saldo = saldo - x;
+          }
+          else  {saldo = saldo - x - 0.50;
+    System.out.println("Hai superato il numero massimo di movimenti! \n Ti il costo del prelievo è un'aumento di 0.5");}
+          nMovimenti++;
+          if (saldo < 0) {
+            throw new BancaException("Il conto è in rosso");
+          }
+
   }
   public double restituisciSaldo() {
     return saldo;
 
+  }
+
+  public String getTitolare() {
+    return titolare;
+  }
+
+  public void setTitolare(String titolare) {
+    this.titolare = titolare;
+  }
+
+  public int getnMovimenti() {
+    return nMovimenti;
+  }
+
+  public void setnMovimenti(int nMovimenti) {
+    this.nMovimenti = nMovimenti;
+  }
+
+  public int getMaxMovimenti() {
+    return maxMovimenti;
+  }
+
+  public double getSaldo() {
+    return saldo;
+  }
+
+  public void setSaldo(double saldo) {
+    this.saldo = saldo;
   }
 }
